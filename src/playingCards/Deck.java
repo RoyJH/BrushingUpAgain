@@ -14,7 +14,7 @@ public class Deck extends Cards{
 	private int id;
 	
 	public void populate() {
-		Deck deck = new Deck();
+		Deck deck[] = new Deck[51];
 		for (int i = 0; i < 52; i++) {
 			if(i < 13 ) {suit = "club";}
 			else if (i < 52) {suit = "spade";}
