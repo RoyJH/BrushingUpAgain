@@ -1,10 +1,12 @@
+/*
 package playingCards;
+
 
 public class Deck extends Cards{
 	private static final Object[] Deck = null;
 
 	Deck(int value, char face, String name, String suit) {
-		super(value, face, name, suit);
+		//super(value, face, name, suit);
 		// TODO Auto-generated constructor stub
 	}
 	private int value;
@@ -30,3 +32,4 @@ public class Deck extends Cards{
 		
 	}
 }
+*/
