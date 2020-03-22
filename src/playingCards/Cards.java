@@ -2,12 +2,11 @@ package playingCards;
 
 public class Cards {
 	private int id =0;
-	//int lp;
 	private int value;
 	private String face;
 	private String name;
 	private String suit;
-	//Cards card[];
+	public int assign;
 	
 	public int getValue() {
 		return value;
@@ -40,62 +39,45 @@ public class Cards {
 		this.id = id;
 	}
 	Cards(){}
-	/*Cards(int value, char face, String name, String suit) {
-		this.value = value;
-		this.face = face;
-		this.name = name;
-		this.suit = suit;
-	}*/
-	public void makeCards(int k) {
-		//int id = 0;
-		//while (id <= 51) {
-		//for (int k=0; k<=51; k++) {
-			Cards card[] = new Cards[51];
-			card[k].setId(k);
-			for (int i = 1; i <= 4; i++){//suit
-				switch (i){
-					case 1: 
-						card[k].setSuit("Spade");
-						break;
-					case 2:
-						card[k].setSuit("Club");
-						break;
-					case 3:
-						card[k].setSuit("Diamond");
-						break;
-					case 4:
-						card[k].setSuit("Heart");
-						break;
-				}
-				for (int j = 1; j <= 13; j++){
-					switch (j){	
-						case 1: card[k].setFace("Ace");break;
-						case 2: card[k].setFace("Two");break;
-						case 3: card[k].setFace("Three");break;
-						case 4: card[k].setFace("Four");break;
-						case 5: card[k].setFace("Five");break;
-						case 6: card[k].setFace("Six");break;
-						case 7: card[k].setFace("Sevel");break;
-						case 8: card[k].setFace("Eight");break;
-						case 9: card[k].setFace("Nine");break;
-						case 10: card[k].setFace("Ten");break;
-						case 11: card[k].setFace("Jack");break;
-						case 12: card[k].setFace("Queen");break;
-						case 13: card[k].setFace("King");break;
-				}
-				}
-				//else card.value = i;
-					
-				
-			}
-			card[k].setName(card[k].face + " of " + card[k].suit); 
-			System.out.println(card[k].name);
-			System.out.println(card[k].id);
-			System.out.println(card[k].face);
-			System.out.println(card[k].suit);
-			//id++;//return card;
-		}
-		//return card[k];
-		//return null;
+	Cards(int value, String face, String name, String suit) {
+		setValue(value);
+		setFace(face);
+		setName(name);
+		setSuit(suit);
 	}
-//}
+	public void makeCards(int k) {
+			setId(k);
+			if (k<=12) 				{setSuit("Spade");}
+			else if(k>=13&&k<=25) 	{setSuit("Club");}
+			else if(k>=26&&k<=38) 	{setSuit("Diamond");}
+			else if(k>=39) 			{setSuit("Heart");}
+			if(k==0 || k==13 || k==26||k==39) {assign=1;}
+			assign = k%13+1;
+			pickFace(assign);
+			setName(face + " of " + suit);
+	}								
+	public void print() {
+		System.out.println("This card's name is "+this.name);
+		System.out.println("This card's id is "+this.id);
+		System.out.println("This card's face is "+this.face);
+		System.out.println("This card's suit is "+this.suit);		
+	}
+	public void pickFace(int f) {
+		switch (f){	
+		case 1: setFace("Ace");break;
+		case 2: setFace("Two");break;
+		case 3: setFace("Three");break;
+		case 4: setFace("Four");break;
+		case 5: setFace("Five");break;
+		case 6: setFace("Six");break;
+		case 7: setFace("Seven");break;
+		case 8: setFace("Eight");break;
+		case 9: setFace("Nine");break;
+		case 10: setFace("Ten");break;
+		case 11: setFace("Jack");break;
+		case 12: setFace("Queen");break;
+		case 13: setFace("King");break;
+		default : setFace("");
+		}
+	}
+}
